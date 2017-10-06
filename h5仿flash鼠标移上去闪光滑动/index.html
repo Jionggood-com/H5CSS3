@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+*{margin:0;padding:0;}
+.inner{position:relative;width:330px;overflow:hidden;height:474px;background:#ebebeb;}
+.inner a::before {
+    background: rgba(0, 0, 0, 0) -moz-linear-gradient(left center , rgba(255, 255, 255, 0) 0px, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0) 100%) repeat;
+    content: "";
+    height: 474px;
+    left: -150px;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    transform: skewX(-25deg);
+    width: 80px;
+}
+.inner a:hover::before {
+    left: 260px;
+    transition: left 1s ease 0s;
+}
+.inner a:hover::before{
+    left: 460px;
+    transition: left 1s ease 0s;
+}
+</style>
+</head>
+
+<body>
+<div class="inner">
+	<a href="#"><img src="570b901dN61b0d02f.jpg"></a>
+</div>
+
+<script type="text/javascript">
+function Person() {
+    // 属性
+    this.Gender = "female";
+    this.Age = 18;
+    this.Words = "Silence";
+    // 方法
+    this.shouting = function() {
+        document.write("开心哦！父类的方法<br />");
+    }
+}
+// 继承
+function Programmer() {
+    this.base = Person;
+}
+Programmer.prototype = new Person;
+// 为子类添加新的方法
+Programmer.prototype.typeCode = function() {
+    document.write("俺是敲代码的！IT民工，很不开心。子类的方法<br />");
+}
+// 调用示例
+function sayHello() {
+    var a = new Programmer();
+    document.write(a.Gender+'<br />'); // 调用父类的属性
+    a.shouting(); // 调用父类的方法
+    a.typeCode(); // 调用子类的方法
+}       
+sayHello();
+</script>
+</body>
+</html>

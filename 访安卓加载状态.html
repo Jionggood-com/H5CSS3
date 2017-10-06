@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.a{padding: 20px;background: red}
+	</style>
+</head>
+<body id="myid" class="mystyle">
+<div class="a mystyle"></div>
+<script>
+//var x=document.getElementsByTagName("body")[0];
+//document.write("Body 元素 CSS 类为: " + x.className);
+//document.write("<br>");
+//document.write("另一种方式: ");
+//document.write(document.getElementById('myid').className);
+var JGData = {
+	x: document.getElementsByTagName("body")[0],
+	init: function(){
+		this._Listener(this.x, 'click',
+		    function(t){
+		      return t.className;
+		    },
+		   	function(e) {
+		   		console.log(this.className)
+		        
+		    }
+		);
+	},
+
+	_Listener: function (label, eventname, subject, callBack) {
+      label.addEventListener(eventname,
+        function(e) {
+          	var target = e.target || e.srcElement;
+          	while (target != label) {
+              	if(subject(target)) {
+                  	callBack.call(target, e);
+                  	break;
+              	}
+              	target = target.parentNode || target.parentElement;
+          	}
+      	});
+  	}
+};
+
+JGData.init();
+/*
+_Listener(x, 'click',
+    function(t){
+      return t.classList;
+    },
+   	function(e) {
+   		console.log(0)
+        
+    }
+);
+
+ function _Listener(label, eventname, subject, callBack) {
+      label.addEventListener(eventname,
+        function(e) {
+          	var target = e.target || e.srcElement;
+          	while (target != label) {
+              	if(subject(target)) {
+                  	callBack.call(target, e);
+                  	break;
+              	}
+              	target = target.parentNode || target.parentElement;
+          	}
+      	});
+  	}*/
+</script>
+
+
+<style>
+* {
+	-webkit-tap-highlight-color:rgba(0, 0, 0, 0);
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-ms-box-sizing:border-box;
+	box-sizing:border-box;
+}
+	
+	.preloader_wrapper.active {
+	-webkit-animation:container_rotate 1568ms linear infinite;
+	animation:container_rotate 1568ms linear infinite;
+}
+.preloader_wrapper {
+	display: inline-block;
+	position:absolute;
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+	width:36px;
+	height:36px;
+	margin:auto;
+	font-size:0;
+}
+.spinner_layer {
+	position:absolute;
+	width:100%;
+	height:100%;
+	opacity:0;
+	border-color:#f60;
+	opacity:1;
+	-webkit-animation:fill_unfill_rotate 5332ms cubic-bezier(.4, 0, .2, 1) infinite both;
+	animation:fill_unfill_rotate 5332ms cubic-bezier(.4, 0, .2, 1) infinite both;
+}
+.circle_clipper {
+	display: inline-block;
+	position: relative;
+	width:50%;
+	height:100%;
+	overflow: hidden;
+	border-color: inherit;
+}
+.circle_clipper .circle {
+	width:200%;
+	height:100%;
+	border-width:5px;
+	border-style: solid;
+	border-color: inherit;
+	border-bottom-color: transparent!important;
+	border-radius:50%;
+	-webkit-animation: none;
+	animation: none;
+	position:absolute;
+	top:0;
+	right:0;
+	bottom:0;
+}
+.circle_clipper.left .circle {
+	left:0;
+	border-right-color: transparent!important;
+	-webkit-transform: rotate(129deg);
+	transform: rotate(129deg);
+}
+.circle_clipper.left .circle {
+	-webkit-animation: left_spin 1333ms cubic-bezier(.4, 0, .2, 1) infinite both;
+	animation: left_spin 1333ms cubic-bezier(.4, 0, .2, 1) infinite both;
+}
+.gap_patch .circle {
+	width:1000%;
+	left: -450%;
+}
+.gap_patch {
+	position:absolute;
+	top:0;
+	left:45%;
+	width:10%;
+	height:100%;
+	overflow: hidden;
+	border-color: inherit;
+}
+.circle_clipper {
+	display: inline-block;
+	position: relative;
+	width:50%;
+	height:100%;
+	overflow: hidden;
+	border-color: inherit;
+}
+.circle_clipper.right .circle {
+	-webkit-animation: right_spin 1333ms cubic-bezier(.4, 0, .2, 1) infinite both;
+	animation: right_spin 1333ms cubic-bezier(.4, 0, .2, 1) infinite both;
+}
+.circle_clipper.right .circle {
+	left: -100%;
+	border-left-color: transparent!important;
+	-webkit-transform: rotate(-129deg);
+	transform: rotate(-129deg);
+}
+
+.full_loading {
+	position:fixed;
+	top:0;
+	left:0;
+	z-index:999;
+	width:100%;
+	height:100%;
+	background:#FFF;
+}
+@-webkit-keyframes container_rotate {
+to {
+-webkit-transform: rotate(360deg);
+}
+}
+@keyframes container_rotate {
+to {
+-webkit-transform: rotate(360deg);
+transform: rotate(360deg);
+}
+}
+@-webkit-keyframes fill_unfill_rotate {
+12.5% {
+-webkit-transform: rotate(135deg);
+}
+25% {
+-webkit-transform: rotate(270deg);
+}
+37.5% {
+-webkit-transform: rotate(405deg);
+}
+50% {
+-webkit-transform: rotate(540deg);
+}
+62.5% {
+-webkit-transform: rotate(675deg);
+}
+75% {
+-webkit-transform: rotate(810deg);
+}
+87.5% {
+-webkit-transform: rotate(945deg);
+}
+to {
+	-webkit-transform: rotate(1080deg);
+}
+}
+@keyframes fill_unfill_rotate {
+12.5% {
+-webkit-transform: rotate(135deg);
+transform: rotate(135deg);
+}
+25% {
+-webkit-transform: rotate(270deg);
+transform: rotate(270deg);
+}
+37.5% {
+-webkit-transform: rotate(405deg);
+transform: rotate(405deg);
+}
+50% {
+-webkit-transform: rotate(540deg);
+transform: rotate(540deg);
+}
+62.5% {
+-webkit-transform: rotate(675deg);
+transform: rotate(675deg);
+}
+75% {
+-webkit-transform: rotate(810deg);
+transform: rotate(810deg);
+}
+87.5% {
+-webkit-transform: rotate(945deg);
+transform: rotate(945deg);
+}
+to {
+	-webkit-transform: rotate(1080deg);
+	transform: rotate(1080deg);
+}
+}
+@-webkit-keyframes left_spin {
+from {
+-webkit-transform: rotate(130deg);
+}
+50% {
+-webkit-transform: rotate(-5deg);
+}
+to {
+	-webkit-transform: rotate(130deg);
+}
+}
+@keyframes left_spin {
+from {
+-webkit-transform: rotate(130deg);
+transform: rotate(130deg);
+}
+50% {
+-webkit-transform: rotate(-5deg);
+transform: rotate(-5deg);
+}
+to {
+	-webkit-transform: rotate(130deg);
+	transform: rotate(130deg);
+}
+}
+@-webkit-keyframes right_spin {
+from {
+-webkit-transform: rotate(-130deg);
+}
+50% {
+-webkit-transform: rotate(5deg);
+}
+to {
+	-webkit-transform: rotate(-130deg);
+}
+}
+@keyframes right_spin {
+from {
+-webkit-transform: rotate(-130deg);
+transform: rotate(-130deg);
+}
+50% {
+-webkit-transform: rotate(5deg);
+transform: rotate(5deg);
+}
+to {
+	-webkit-transform: rotate(-130deg);
+	transform: rotate(-130deg)
+}
+}
+</style>
+<div class="full_loading">
+	<div class="preloader_wrapper active">
+        <div class="spinner_layer">
+            <div class="circle_clipper left">
+                <div class="circle"></div>
+            </div>
+            <div class="gap_patch">
+                <div class="circle"></div>
+            </div>
+            <div class="circle_clipper right">
+                <div class="circle"></div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

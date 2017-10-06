@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.spinner{
+			display:inline-block;
+		}
+
+		.spinner-icon{
+			width:18px;
+			height:18px;
+			box-sizing:border-box;
+			border:solid 2px transparent;
+			border-top-color:#f40;
+			border-left-color:#f40;
+			border-radius:50%;
+			-webkit-animation:nprogress-spinner .4s linear infinite;
+			animation:nprogress-spinner .4s linear infinite;
+		}
+
+		@-webkit-keyframes nprogress-spinner{
+			0%{
+				-webkit-transform:rotate(0);
+			}
+		
+			100%{
+				-webkit-transform:rotate(360deg);
+			}
+		}
+		
+		@keyframes nprogress-spinner{
+			0%{
+				transform:rotate(0);
+			}
+			
+			100%{
+				transform:rotate(360deg);
+			}
+		}
+
+
+
+	/**/
+	.disqus-loader-spinner{
+		-webkit-animation:disqus-loader-spinner-animation .6s infinite linear!important;
+		animation:disqus-loader-spinner-animation .6s infinite linear!important;
+		box-sizing: border-box; width: 22px; height: 22px;border:solid 2px transparent;border-top-color:rgba(51, 54, 58, 0.4);
+			border-bottom-color:rgba(51, 54, 58, 0.4);/* border-width: 2px; border-style: solid; border-color: #ff6600 transparent;transform-origin: 50% 50% 0px;*/ border-radius: 50%; 
+	}
+	@-webkit-keyframes disqus-loader-spinner-animation{
+		0%{
+			-webkit-transform:rotate(0);
+			transform:rotate(0)
+		}
+
+		100%{
+			-webkit-transform:rotate(360deg);
+			transform:rotate(360deg)
+			}
+	}
+
+	@keyframes disqus-loader-spinner-animation{
+		0%{
+			-webkit-transform:rotate(0);
+			transform:rotate(0)
+		}
+
+		100%{
+			-webkit-transform:rotate(360deg);
+			transform:rotate(360deg)
+		}
+	}
+	</style>
+</head>
+<body>
+	<div class="spinner" role="spinner">
+		<div class="spinner-icon"></div>
+	</div>
+<br />
+<br />
+<br />
+
+	<div class="disqus-loader-spinner"></div>
+</body>
+</html>
